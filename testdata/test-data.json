@@ -1,1 +1,14 @@
-{}
+{
+  "criticalPathLoginAddItemCartLogout": {
+    "enterValidUsername": "standard_user",
+    "enterValidPassword": "secret_sauce"
+  },
+  "successfulLoginShowsProductsPageWithProductGrid": {
+    "enterValidUsername": "standard_user",
+    "enterValidPassword": "secret_sauce"
+  },
+  "addAProductFromProductsPageUpdatesCartBadgeTo1": {
+    "enterValidUsername": "standard_user",
+    "enterValidPassword": "secret_sauce"
+  }
+}
