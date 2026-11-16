@@ -7,7 +7,7 @@ test.use({ testIdAttribute: 'data-test' });
 test.describe('Saucedemo Main Functionalities', () => {
 });
 
-  test('Critical path: login → add item → cart → logout', { tag: ["@smoke","@e2e","@regression","@P0","@case-59cd5f10-1929-4a0d-bb6d-2fac54654708"] }, async ({ page, loginPage, productsPage, cartPage }) => {
+  test('Critical path: login → add item → cart → logout', { tag: ["@smoke","@e2e","@regression","@P0","@case-59cd5f10-1929-4a0d-bb6d-2fac54654708"] }, async ({ page, loginPage, productsPage, cartPage, inventoryPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
       await page.goto('https://www.saucedemo.com/');
     });
@@ -61,7 +61,7 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
 
     await test.step('Click — Open side menu', async () => {
-      await productsPage.clickBurgerMenuButton();
+      await inventoryPage.clickOpenMenu();
     });
 
     await test.step('Assert visible — Logout link visible', async () => {
