@@ -47,7 +47,7 @@ export class LoginPage {
     username: { strategy: 'css' as const, value: '[data-test="username"]', role: 'textbox', actionKind: 'textbox' as const },
     password: { strategy: 'css' as const, value: '[data-test="password"]', role: 'textbox', actionKind: 'textbox' as const },
     loginButton: { strategy: 'testId', value: 'login-button', actionKind: 'button' as const },
-    loginLogo: { strategy: 'css', value: '.login_logo', actionKind: 'generic' as const }
+    loginLogo: { strategy: 'css', value: '.login_logo', actionKind: 'generic' as const },
     login: { strategy: 'css' as const, value: '[data-test="login-button"]', role: 'textbox', actionKind: 'generic' as const },
     loginCredentials: { strategy: 'css' as const, value: '[data-test="login-credentials"]', actionKind: 'text' as const },
     acceptedUsernamesAre: { strategy: 'role' as const, value: 'Accepted usernames are:', role: 'heading', level: 4, actionKind: 'text' as const },
