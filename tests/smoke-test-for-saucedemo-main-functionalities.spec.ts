@@ -2,7 +2,11 @@ import { test, expect } from '@support/fixtures';
 import env from '@support/env';
 import testData from '@testdata/test-data.json';
 
+test.use({ testIdAttribute: 'data-test' });
+
 test.describe('Saucedemo Main Functionalities', () => {
+});
+
   test('Critical path: login → add item → cart → logout', { tag: ["@smoke","@e2e","@regression","@P0","@case-59cd5f10-1929-4a0d-bb6d-2fac54654708"] }, async ({ page, loginPage, productsPage, cartPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
       await page.goto('https://www.saucedemo.com/');
@@ -13,11 +17,11 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
 
     await test.step('Fill — Enter valid username', async () => {
-      await loginPage.fillUsername(testData.criticalPathLoginAddItemCartLogout.enterValidUsername);
+      await loginPage.fillUsername(env.username);
     });
 
     await test.step('Fill — Enter valid password', async () => {
-      await loginPage.fillPassword(testData.criticalPathLoginAddItemCartLogout.enterValidPassword);
+      await loginPage.fillPassword(env.password);
     });
 
     await test.step('Click — Click Login', async () => {
@@ -77,6 +81,7 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
   });
 
+
   test('Login page loads with required UI elements', { tag: ["@functional","@regression","@P1","@case-baaeb449-733b-4989-8d9e-70396c664480"] }, async ({ page, loginPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
       await page.goto('https://www.saucedemo.com/');
@@ -99,6 +104,7 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
   });
 
+
   test('Successful login shows Products page with product grid', { tag: ["@functional","@regression","@P1","@case-570f51b0-7fc4-471d-b3ae-ec979adec09c"] }, async ({ page, loginPage, productsPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
       await page.goto('https://www.saucedemo.com/');
@@ -109,11 +115,11 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
 
     await test.step('Fill — Enter valid username', async () => {
-      await loginPage.fillUsername(testData.successfulLoginShowsProductsPageWithProductGrid.enterValidUsername);
+      await loginPage.fillUsername(env.username);
     });
 
     await test.step('Fill — Enter valid password', async () => {
-      await loginPage.fillPassword(testData.successfulLoginShowsProductsPageWithProductGrid.enterValidPassword);
+      await loginPage.fillPassword(env.password);
     });
 
     await test.step('Click — Click Login', async () => {
@@ -137,6 +143,7 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
   });
 
+
   test('Add a product from Products page updates cart badge to 1', { tag: ["@functional","@regression","@P1","@case-4174557e-2962-4c2a-80f5-76932f2ef655"] }, async ({ page, loginPage, productsPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
       await page.goto('https://www.saucedemo.com/');
@@ -147,11 +154,11 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
 
     await test.step('Fill — Enter valid username', async () => {
-      await loginPage.fillUsername(testData.addAProductFromProductsPageUpdatesCartBadgeTo1.enterValidUsername);
+      await loginPage.fillUsername(env.username);
     });
 
     await test.step('Fill — Enter valid password', async () => {
-      await loginPage.fillPassword(testData.addAProductFromProductsPageUpdatesCartBadgeTo1.enterValidPassword);
+      await loginPage.fillPassword(env.password);
     });
 
     await test.step('Click — Click Login', async () => {
@@ -170,4 +177,3 @@ test.describe('Saucedemo Main Functionalities', () => {
       await productsPage.expectCartBadgeContainsText('1');
     });
   });
-});
