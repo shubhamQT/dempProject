@@ -1,0 +1,72 @@
+{
+  "id": "4174557e-2962-4c2a-80f5-76932f2ef655",
+  "testPlanId": "2a168258-f11d-40ba-8dbc-4357bd154fea",
+  "requirementId": "d64c7581-d0e0-4d7d-9ee2-d71d325431b7",
+  "suiteName": "Saucedemo Main Functionalities",
+  "case": {
+    "id": "4174557e-2962-4c2a-80f5-76932f2ef655",
+    "title": "Add a product from Products page updates cart badge to 1",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "f3-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Saucedemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "f3-2",
+        "action": "waitForVisible",
+        "targetDescription": "Username input visible",
+        "locatorHint": "[data-test=\"username\"]"
+      },
+      {
+        "id": "f3-3",
+        "action": "fill",
+        "targetDescription": "Enter valid username",
+        "locatorHint": "[data-test=\"username\"]",
+        "value": "standard_user"
+      },
+      {
+        "id": "f3-4",
+        "action": "fill",
+        "targetDescription": "Enter valid password",
+        "locatorHint": "[data-test=\"password\"]",
+        "value": "secret_sauce"
+      },
+      {
+        "id": "f3-5",
+        "action": "tap",
+        "targetDescription": "Click Login",
+        "locatorHint": "[data-test=\"login-button\"]"
+      },
+      {
+        "id": "f3-6",
+        "action": "waitForVisible",
+        "targetDescription": "Products page title visible",
+        "locatorHint": ".title"
+      },
+      {
+        "id": "f3-7",
+        "action": "tap",
+        "targetDescription": "Add 'Sauce Labs Bike Light' to cart",
+        "locatorHint": "[data-test=\"add-to-cart-sauce-labs-bike-light\"]"
+      },
+      {
+        "id": "f3-8",
+        "action": "assertContainsText",
+        "targetDescription": "Cart badge shows 1",
+        "locatorHint": ".shopping_cart_badge",
+        "assertion": "1"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}

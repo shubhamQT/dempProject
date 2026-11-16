@@ -1,0 +1,327 @@
+{
+  "id": "2a168258-f11d-40ba-8dbc-4357bd154fea",
+  "requirementId": "d64c7581-d0e0-4d7d-9ee2-d71d325431b7",
+  "model": "gpt-5",
+  "createdAt": "2026-11-16T14:31:19.707Z",
+  "plan": {
+    "version": 1,
+    "suiteName": "Saucedemo Main Functionalities",
+    "cases": [
+      {
+        "id": "59cd5f10-1929-4a0d-bb6d-2fac54654708",
+        "title": "Critical path: login → add item → cart → logout",
+        "priority": "P0",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "s1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Saucedemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "s2",
+            "action": "waitForVisible",
+            "targetDescription": "Username input visible",
+            "locatorHint": "[data-test=\"username\"]"
+          },
+          {
+            "id": "s3",
+            "action": "fill",
+            "targetDescription": "Enter valid username",
+            "locatorHint": "[data-test=\"username\"]",
+            "value": "standard_user"
+          },
+          {
+            "id": "s4",
+            "action": "fill",
+            "targetDescription": "Enter valid password",
+            "locatorHint": "[data-test=\"password\"]",
+            "value": "secret_sauce"
+          },
+          {
+            "id": "s5",
+            "action": "tap",
+            "targetDescription": "Click Login",
+            "locatorHint": "[data-test=\"login-button\"]"
+          },
+          {
+            "id": "s6",
+            "action": "waitForVisible",
+            "targetDescription": "Products page title visible",
+            "locatorHint": ".title"
+          },
+          {
+            "id": "s7",
+            "action": "assertContainsText",
+            "targetDescription": "Verify Products title text",
+            "locatorHint": ".title",
+            "assertion": "Products"
+          },
+          {
+            "id": "s8",
+            "action": "tap",
+            "targetDescription": "Add 'Sauce Labs Backpack' to cart",
+            "locatorHint": "[data-test=\"add-to-cart-sauce-labs-backpack\"]"
+          },
+          {
+            "id": "s9",
+            "action": "assertContainsText",
+            "targetDescription": "Cart badge shows 1",
+            "locatorHint": ".shopping_cart_badge",
+            "assertion": "1"
+          },
+          {
+            "id": "s10",
+            "action": "tap",
+            "targetDescription": "Open cart",
+            "locatorHint": "[data-test=\"shopping-cart-link\"]"
+          },
+          {
+            "id": "s11",
+            "action": "waitForVisible",
+            "targetDescription": "Cart page title visible",
+            "locatorHint": ".title"
+          },
+          {
+            "id": "s12",
+            "action": "assertContainsText",
+            "targetDescription": "Verify Cart title text",
+            "locatorHint": ".title",
+            "assertion": "Your Cart"
+          },
+          {
+            "id": "s13",
+            "action": "assertContainsText",
+            "targetDescription": "Verify cart item name",
+            "locatorHint": ".cart_item .inventory_item_name",
+            "assertion": "Sauce Labs Backpack"
+          },
+          {
+            "id": "s14",
+            "action": "tap",
+            "targetDescription": "Open side menu",
+            "locatorHint": "[data-test=\"react-burger-menu-btn\"]"
+          },
+          {
+            "id": "s15",
+            "action": "waitForVisible",
+            "targetDescription": "Logout link visible",
+            "locatorHint": "#logout_sidebar_link"
+          },
+          {
+            "id": "s16",
+            "action": "tap",
+            "targetDescription": "Click Logout",
+            "locatorHint": "#logout_sidebar_link"
+          },
+          {
+            "id": "s17",
+            "action": "waitForVisible",
+            "targetDescription": "Login button visible",
+            "locatorHint": "[data-test=\"login-button\"]"
+          },
+          {
+            "id": "s18",
+            "action": "assertContainsText",
+            "targetDescription": "Verify login page logo text",
+            "locatorHint": ".login_logo",
+            "assertion": "Swag Labs"
+          }
+        ],
+        "tags": [
+          "@smoke",
+          "@e2e",
+          "@regression"
+        ]
+      },
+      {
+        "id": "baaeb449-733b-4989-8d9e-70396c664480",
+        "title": "Login page loads with required UI elements",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "f1-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Saucedemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "f1-2",
+            "action": "waitForVisible",
+            "targetDescription": "Username input visible",
+            "locatorHint": "[data-test=\"username\"]"
+          },
+          {
+            "id": "f1-3",
+            "action": "assertVisible",
+            "targetDescription": "Password input visible",
+            "locatorHint": "[data-test=\"password\"]"
+          },
+          {
+            "id": "f1-4",
+            "action": "assertVisible",
+            "targetDescription": "Login button visible",
+            "locatorHint": "[data-test=\"login-button\"]"
+          },
+          {
+            "id": "f1-5",
+            "action": "assertContainsText",
+            "targetDescription": "Verify login logo text",
+            "locatorHint": ".login_logo",
+            "assertion": "Swag Labs"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "570f51b0-7fc4-471d-b3ae-ec979adec09c",
+        "title": "Successful login shows Products page with product grid",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "f2-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Saucedemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "f2-2",
+            "action": "waitForVisible",
+            "targetDescription": "Username input visible",
+            "locatorHint": "[data-test=\"username\"]"
+          },
+          {
+            "id": "f2-3",
+            "action": "fill",
+            "targetDescription": "Enter valid username",
+            "locatorHint": "[data-test=\"username\"]",
+            "value": "standard_user"
+          },
+          {
+            "id": "f2-4",
+            "action": "fill",
+            "targetDescription": "Enter valid password",
+            "locatorHint": "[data-test=\"password\"]",
+            "value": "secret_sauce"
+          },
+          {
+            "id": "f2-5",
+            "action": "tap",
+            "targetDescription": "Click Login",
+            "locatorHint": "[data-test=\"login-button\"]"
+          },
+          {
+            "id": "f2-6",
+            "action": "waitForVisible",
+            "targetDescription": "Products list visible",
+            "locatorHint": ".inventory_list"
+          },
+          {
+            "id": "f2-7",
+            "action": "assertCount",
+            "targetDescription": "Verify 6 products are listed",
+            "locatorHint": ".inventory_item"
+          },
+          {
+            "id": "f2-8",
+            "action": "assertVisible",
+            "targetDescription": "Verify sort dropdown visible",
+            "locatorHint": "[data-test=\"product_sort_container\"]"
+          },
+          {
+            "id": "f2-9",
+            "action": "assertContainsText",
+            "targetDescription": "Verify Products page title",
+            "locatorHint": ".title",
+            "assertion": "Products"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      },
+      {
+        "id": "4174557e-2962-4c2a-80f5-76932f2ef655",
+        "title": "Add a product from Products page updates cart badge to 1",
+        "priority": "P1",
+        "platforms": [
+          "chrome"
+        ],
+        "preconditions": [],
+        "steps": [
+          {
+            "id": "f3-1",
+            "action": "openUrl",
+            "targetDescription": "Navigate to Saucedemo login page",
+            "value": "https://www.saucedemo.com/"
+          },
+          {
+            "id": "f3-2",
+            "action": "waitForVisible",
+            "targetDescription": "Username input visible",
+            "locatorHint": "[data-test=\"username\"]"
+          },
+          {
+            "id": "f3-3",
+            "action": "fill",
+            "targetDescription": "Enter valid username",
+            "locatorHint": "[data-test=\"username\"]",
+            "value": "standard_user"
+          },
+          {
+            "id": "f3-4",
+            "action": "fill",
+            "targetDescription": "Enter valid password",
+            "locatorHint": "[data-test=\"password\"]",
+            "value": "secret_sauce"
+          },
+          {
+            "id": "f3-5",
+            "action": "tap",
+            "targetDescription": "Click Login",
+            "locatorHint": "[data-test=\"login-button\"]"
+          },
+          {
+            "id": "f3-6",
+            "action": "waitForVisible",
+            "targetDescription": "Products page title visible",
+            "locatorHint": ".title"
+          },
+          {
+            "id": "f3-7",
+            "action": "tap",
+            "targetDescription": "Add 'Sauce Labs Bike Light' to cart",
+            "locatorHint": "[data-test=\"add-to-cart-sauce-labs-bike-light\"]"
+          },
+          {
+            "id": "f3-8",
+            "action": "assertContainsText",
+            "targetDescription": "Cart badge shows 1",
+            "locatorHint": ".shopping_cart_badge",
+            "assertion": "1"
+          }
+        ],
+        "tags": [
+          "@functional",
+          "@regression"
+        ]
+      }
+    ]
+  }
+}

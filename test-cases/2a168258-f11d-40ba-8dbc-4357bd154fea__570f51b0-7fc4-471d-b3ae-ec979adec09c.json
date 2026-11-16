@@ -1,0 +1,78 @@
+{
+  "id": "570f51b0-7fc4-471d-b3ae-ec979adec09c",
+  "testPlanId": "2a168258-f11d-40ba-8dbc-4357bd154fea",
+  "requirementId": "d64c7581-d0e0-4d7d-9ee2-d71d325431b7",
+  "suiteName": "Saucedemo Main Functionalities",
+  "case": {
+    "id": "570f51b0-7fc4-471d-b3ae-ec979adec09c",
+    "title": "Successful login shows Products page with product grid",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "f2-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Saucedemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "f2-2",
+        "action": "waitForVisible",
+        "targetDescription": "Username input visible",
+        "locatorHint": "[data-test=\"username\"]"
+      },
+      {
+        "id": "f2-3",
+        "action": "fill",
+        "targetDescription": "Enter valid username",
+        "locatorHint": "[data-test=\"username\"]",
+        "value": "standard_user"
+      },
+      {
+        "id": "f2-4",
+        "action": "fill",
+        "targetDescription": "Enter valid password",
+        "locatorHint": "[data-test=\"password\"]",
+        "value": "secret_sauce"
+      },
+      {
+        "id": "f2-5",
+        "action": "tap",
+        "targetDescription": "Click Login",
+        "locatorHint": "[data-test=\"login-button\"]"
+      },
+      {
+        "id": "f2-6",
+        "action": "waitForVisible",
+        "targetDescription": "Products list visible",
+        "locatorHint": ".inventory_list"
+      },
+      {
+        "id": "f2-7",
+        "action": "assertCount",
+        "targetDescription": "Verify 6 products are listed",
+        "locatorHint": ".inventory_item"
+      },
+      {
+        "id": "f2-8",
+        "action": "assertVisible",
+        "targetDescription": "Verify sort dropdown visible",
+        "locatorHint": "[data-test=\"product_sort_container\"]"
+      },
+      {
+        "id": "f2-9",
+        "action": "assertContainsText",
+        "targetDescription": "Verify Products page title",
+        "locatorHint": ".title",
+        "assertion": "Products"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "baaeb449-733b-4989-8d9e-70396c664480",
+  "testPlanId": "2a168258-f11d-40ba-8dbc-4357bd154fea",
+  "requirementId": "d64c7581-d0e0-4d7d-9ee2-d71d325431b7",
+  "suiteName": "Saucedemo Main Functionalities",
+  "case": {
+    "id": "baaeb449-733b-4989-8d9e-70396c664480",
+    "title": "Login page loads with required UI elements",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "f1-1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Saucedemo login page",
+        "value": "https://www.saucedemo.com/"
+      },
+      {
+        "id": "f1-2",
+        "action": "waitForVisible",
+        "targetDescription": "Username input visible",
+        "locatorHint": "[data-test=\"username\"]"
+      },
+      {
+        "id": "f1-3",
+        "action": "assertVisible",
+        "targetDescription": "Password input visible",
+        "locatorHint": "[data-test=\"password\"]"
+      },
+      {
+        "id": "f1-4",
+        "action": "assertVisible",
+        "targetDescription": "Login button visible",
+        "locatorHint": "[data-test=\"login-button\"]"
+      },
+      {
+        "id": "f1-5",
+        "action": "assertContainsText",
+        "targetDescription": "Verify login logo text",
+        "locatorHint": ".login_logo",
+        "assertion": "Swag Labs"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}
