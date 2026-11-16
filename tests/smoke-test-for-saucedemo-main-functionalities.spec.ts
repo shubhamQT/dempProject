@@ -61,7 +61,7 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
 
     await test.step('Click — Open side menu', async () => {
-      await productsPage.clickBurgerMenu();
+      await productsPage.clickBurgerMenuButton();
     });
 
     await test.step('Assert visible — Logout link visible', async () => {
@@ -80,7 +80,6 @@ test.describe('Saucedemo Main Functionalities', () => {
       await loginPage.expectLoginLogoContainsText('Swag Labs');
     });
   });
-
 
   test('Login page loads with required UI elements', { tag: ["@functional","@regression","@P1","@case-baaeb449-733b-4989-8d9e-70396c664480"] }, async ({ page, loginPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
@@ -104,8 +103,7 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
   });
 
-
-  test('Successful login shows Products page with product grid', { tag: ["@functional","@regression","@P1","@case-570f51b0-7fc4-471d-b3ae-ec979adec09c"] }, async ({ page, loginPage, productsPage }) => {
+  test('Successful login shows Products page with product grid', { tag: ["@functional","@regression","@P1","@case-570f51b0-7fc4-471d-b3ae-ec979adec09c"] }, async ({ page, loginPage, productsPage, inventoryPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
       await page.goto('https://www.saucedemo.com/');
     });
@@ -135,14 +133,13 @@ test.describe('Saucedemo Main Functionalities', () => {
     });
 
     await test.step('Assert visible — Verify sort dropdown visible', async () => {
-      await productsPage.expectSortDropdownVisible();
+      await inventoryPage.expectProductSortVisible();
     });
 
     await test.step('Assert contains — Verify Products page title', async () => {
       await productsPage.expectTitleContainsText('Products');
     });
   });
-
 
   test('Add a product from Products page updates cart badge to 1', { tag: ["@functional","@regression","@P1","@case-4174557e-2962-4c2a-80f5-76932f2ef655"] }, async ({ page, loginPage, productsPage }) => {
     await test.step('Open — Navigate to Saucedemo login page', async () => {
