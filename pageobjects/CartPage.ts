@@ -45,7 +45,7 @@ export class CartPage {
 
   private static readonly L = {
     title: { strategy: 'css' as const, value: '[data-test="title"]', actionKind: 'text' as const },
-    cartItemName: { strategy: 'css', value: '.cart_item .inventory_item_name', actionKind: 'generic' as const }
+    cartItemName: { strategy: 'css', value: '.cart_item .inventory_item_name', actionKind: 'generic' as const },
     shoppingCart: { strategy: 'css' as const, value: '[data-test="shopping-cart-link"]', role: 'link', actionKind: 'link' as const },
     cartQuantityLabel: { strategy: 'css' as const, value: '[data-test="cart-quantity-label"]', actionKind: 'text' as const },
     cartDescLabel: { strategy: 'css' as const, value: '[data-test="cart-desc-label"]', actionKind: 'text' as const },
