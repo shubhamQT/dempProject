@@ -1,0 +1,6 @@
+{
+  "id": "d64c7581-d0e0-4d7d-9ee2-d71d325431b7",
+  "title": "Smoke Test for Saucedemo Main Functionalities",
+  "content": "Verify that the main functionalities of the Saucedemo application are accessible and working. This includes loading the homepage, logging in with valid credentials, viewing the products page, adding a product to the cart, and logging out. The test should ensure that each step completes without errors and that the expected UI elements are present at each stage.",
+  "createdAt": "2026-11-16T14:30:05.864Z"
+}
